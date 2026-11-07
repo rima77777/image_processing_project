@@ -4,8 +4,6 @@ Phase 1, Part 1 of the project **A comparative study of RAG techniques for image
 
 This part provides the **shared, audited and frozen splits** used by every later step: the RAG knowledge base, hyperparameter tuning and final evaluation.
 
-> **Do not modify any file in `splits/`.** Any change must be published as a new version (v1.1, v2.0, ...).
-
 ---
 
 ## 1. Summary

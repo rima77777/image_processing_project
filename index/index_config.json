@@ -1,11 +1,45 @@
 {
-  "index_type": "IndexFlatIP",
-  "similarity_metric": "cosine_similarity",
-  "embedding_model": "all-MiniLM-L6-v2",
-  "vector_dimension": 384,
-  "total_vectors": 10000,
-  "quality_checks": {
+  "framework_versions": {
+    "faiss": "1.15.1",
+    "torch": "2.14.1+cpu",
+    "open_clip": "4.2.1"
+  },
+  "batch_size_used": 128,
+  "similarity_metric": "cosine_similarity (Inner Product on L2-normalized vectors)",
+  "indexes": {
+    "sbert_caption_index": {
+      "file": "kb_sbert_flat_ip.index",
+      "model": "all-MiniLM-L6-v2",
+      "type": "IndexFlatIP",
+      "dimension": 384,
+      "total_vectors": 10000,
+      "size_bytes": 15360045,
+      "indexing_time_sec": 0.025
+    },
+    "clip_caption_index": {
+      "file": "kb_clip_text_flat_ip.index",
+      "model": "OpenCLIP ViT-B-32 (laion2b_s34b_b79k)",
+      "type": "IndexFlatIP",
+      "dimension": 512,
+      "total_vectors": 10000,
+      "size_bytes": 20480045,
+      "indexing_time_sec": 0.0161
+    },
+    "clip_image_index": {
+      "file": "kb_clip_image_flat_ip.index",
+      "model": "OpenCLIP ViT-B-32 (Visual Encoder)",
+      "type": "IndexFlatIP",
+      "dimension": 512,
+      "total_vectors": 10000,
+      "size_bytes": 20480045,
+      "indexing_time_sec": 0.0376
+    }
+  },
+  "quality_control": {
     "nan_count": 0,
-    "unique_captions": 9895
+    "total_kb_samples": 10000,
+    "unique_image_ids": 10000,
+    "unique_captions": 9895,
+    "duplicate_caption_occurrences": 105
   }
 }

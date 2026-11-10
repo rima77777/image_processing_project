@@ -1,0 +1,28 @@
+======================================================================
+  AUTOMATED IMAGE CAPTIONING USING RAG: SYSTEM SUMMARY & JUSTIFICATION
+======================================================================
+
+1. PROJECT OBJECTIVE
+--------------------
+To develop a Retrieval-Augmented Generation (RAG) pipeline for image captioning on the MS COCO dataset subset. The primary objective is to evaluate whether retrieving visually similar reference captions improves description quality and grounding compared to a standard vanilla model.
+
+2. SYSTEM ARCHITECTURE (PHASE 4)
+--------------------------------
+- Vector Indexing (FAISS):
+  * Dense vectors derived from image embeddings are indexed using `faiss.IndexFlatIP`.
+  * Cosine similarity matching is enabled by normalizing vectors before insertion and query execution.
+  * Justification: FAISS offers fast approximate nearest neighbor search over dense high-dimensional vectors, enabling efficient real-time retrieval.
+
+- Top-k Retrieval:
+  * Given a query vector, the retriever extracts the nearest neighbor captions from the training set.
+  * Justification: Injecting neighboring captions provides strong structural and lexical clues to guide generation.
+
+- Generation Module (google/flan-t5-small):
+  * A sequence-to-sequence language model (`AutoModelForSeq2SeqLM`) conditions generation on the visual prompt and retrieved evidence.
+  * Justification: `google/flan-t5-small` is lightweight, execution-friendly on local hardware and Colab GPUs, and effective at instruction-following tasks.
+
+3. METHODOLOGY, EVALUATION & AUDIT
+----------------------------------
+- Baseline Model: Generates captions using only visual inputs without retrieved context.
+- RAG Model: Generates captions using both visual inputs and retrieved top-k evidence.
+- Metrics & Integrity: Evaluated via BLEU and ROUGE-L scores. A leakage audit (`leakage_audit.json`) was conducted to ensure strict separation between training knowledge and validation/test queries.

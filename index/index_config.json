@@ -1,0 +1,11 @@
+{
+  "index_type": "IndexFlatIP",
+  "similarity_metric": "cosine_similarity",
+  "embedding_model": "all-MiniLM-L6-v2",
+  "vector_dimension": 384,
+  "total_vectors": 10000,
+  "quality_checks": {
+    "nan_count": 0,
+    "unique_captions": 9895
+  }
+}

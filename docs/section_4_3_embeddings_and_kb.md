@@ -1,4 +1,4 @@
-"""# Section 4.3: Embeddings Generation, Vector Indexing & Knowledge Base Retrieval
+# Section 4.3: Embeddings Generation, Vector Indexing & Knowledge Base Retrieval
 
 **Role:** Member 3 – Embeddings & Knowledge Base Lead  
 **Lead:** Rima AHFIR  

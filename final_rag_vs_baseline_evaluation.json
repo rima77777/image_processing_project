@@ -1,0 +1,20 @@
+[
+    {
+        "image_id": "val_000001",
+        "baseline_caption": "A person riding a skateboard.",
+        "rag_caption": "A skateboarder is riding a skateboard on the street.",
+        "ground_truth": [
+            "A person riding a skateboard down an urban street.",
+            "A skateboarder rolling down the road."
+        ]
+    },
+    {
+        "image_id": "val_000002",
+        "baseline_caption": "People eating pizza.",
+        "rag_caption": "A group of people sitting around a wooden table eating pizza.",
+        "ground_truth": [
+            "A group of people sitting around a wooden table eating pizza.",
+            "Friends sharing a pizza at a restaurant."
+        ]
+    }
+]

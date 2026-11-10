@@ -1,4 +1,4 @@
-"""Shared configuration and helpers for the Phase 1 data pipeline (Member 1).
+"""Shared configuration and helpers for the Phase 1 data pipeline .
 
 Paths can be overridden with environment variables:
     DATA_ROOT    folder containing train2017/, val2017/ and annotations_trainval2017/

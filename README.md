@@ -1,6 +1,8 @@
 # Comparative Study of RAG Techniques for Image Captioning — Group 6 (Sparse / BM25 RAG)
 
-Team submission · **Phase 1: data, preprocessing, metadata, embeddings and knowledge base** · Release **v1.1**
+Team submission · **Phase 1: data, preprocessing, metadata, embeddings and knowledge base** · 
+
+Release **v1.1**
 
 This repository contains everything needed to build, audit and reproduce the shared data foundation of the project: frozen and leakage-checked splits of MS COCO 2017, cleaned captions, objects detected directly in the images, embeddings, FAISS indexes, and the exploratory statistics.
 

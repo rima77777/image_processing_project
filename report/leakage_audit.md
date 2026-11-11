@@ -1,7 +1,9 @@
 # Leakage Audit Summary – Splits v1.1
 
 **Scope:** frozen splits `kb` (knowledge base), `val` (validation / tuning) and `test`.
+
 **Raw results:** `report/leakage_audit.json`, `report/audit_report.json` and `report/caption_leakage_stats.json`.
+
 **Code:** `notebooks/data-audit-and-splits-01.ipynb` and `src/make_splits.py`.
 
 ## 1. Split definition

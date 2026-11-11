@@ -126,6 +126,7 @@ Details: [`docs/section_2_preprocessing_and_metadata.md`](docs/section_2_preproc
 - One caption per kb image is indexed (its *primary caption*). If the first caption of an image is in `excluded_captions.json`, another non-excluded caption of the same image is used (75 captions were replaced).
 - `embeddings/kb_mapping.json` and `.csv` link each vector to its image ID, primary caption, object count and detected classes; the order matches `embeddings/kb_image_ids.npy`.
 - Checks: the indexed image IDs equal the kb IDs; no test or val image is in the index; no indexed caption equals a test or val caption (normalised).
+- Run the checks with PROJECT_DIR=. python src/verify_index.py (result in report/index_id_check.json). 
 - Versions, batch size and leakage counts are recorded in `index/index_config.json`.
 
 Details: [`docs/section_4_3_embeddings_and_kb.md`](docs/section_4_3_embeddings_and_kb.md).

@@ -239,11 +239,8 @@ Any further change to the splits or to the exclusion list must be published as a
 
 | Role | Responsibility |
 |---|---|
-| Member 1 · Data & Splits | Audit, frozen splits, leakage control, scripts in `src/` |
+| Member 1 · Data & Splits | Audit, frozen splits, leakage control, scripts in `src/`,final report |
 | Member 2 · Preprocessing & Metadata | Caption cleaning, object extraction from images |
 | Member 3 · Embeddings & Knowledge Base | Embeddings, FAISS indexes, retrieval sanity check |
-| Member 4 · Exploration & Report | Statistics, figures, repository documentation, final report |
+| Member 4 · Exploration & Report | Statistics, figures, repository documentation, |
 
-## 14. Data source
-
-Lin, T.-Y. et al., *Microsoft COCO: Common Objects in Context*, ECCV 2014 (COCO 2017 release). The annotations are released under CC BY 4.0; the images remain subject to the terms of their Flickr sources.

@@ -103,3 +103,13 @@ Query [Val ID 39697]: "A pizza is shown in a box uncovered and cooked."
    Rank 2 (Score: 0.8332) -> KB ID 117578: "A cooked pizza sits in a box, with meat and vegetable toppings."
    Rank 3 (Score: 0.7511) -> KB ID 339159: "The pizza is cooked and ready to be eaten"
 ===========================================================================
+
+### 5.3 Index Verification (v1.1)
+In addition to the validation sanity check above, the following checks were run on the final indexes.
+After the caption exclusion, the indexes were verified with src/verify_index.py
+(result in report/index_id_check.json). The 10,000 indexed image IDs are exactly the
+kb IDs, with no duplicate; no test or validation image is in the index, so a test image
+cannot be retrieved for itself. The 75 primary captions that appeared in
+excluded_captions.json were replaced by another non-excluded caption of the same image,
+and no indexed caption equals a test or validation caption after normalisation. Each of
+the three indexes contains 10,000 vectors.

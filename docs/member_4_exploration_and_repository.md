@@ -23,6 +23,42 @@ The corresponding results are saved in:
 - `exploration/caption_statistics.csv`
 - `exploration/caption_exclusion_comparison.csv`
 
+
+### 1.2 Caption Preprocessing and Vocabulary Analysis
+
+The v1.1 exploration summary reports the following caption preprocessing statistics:
+
+| Statistic | Before preprocessing | After preprocessing |
+|---|---:|---:|
+| Number of captions | 50,000 | 49,777 |
+| Vocabulary size | 15,992 | 9,799 |
+| Average words per caption | 10.464 | 10.478 |
+
+The reported vocabulary decreased from 15,992 to 9,799 unique words. This suggests reduced vocabulary variation in the processed captions. The caption counts match the exclusion totals reported in Section 1.1, so they should not be interpreted as an independent measurement of caption removal during text preprocessing.
+
+The results are recorded in `exploration/exploration_summary.json`.
+
+### 1.3 Relationship Between Scene Complexity and Caption Length
+
+A scatter plot was generated to examine the relationship between the number of detected objects and the average caption length.
+
+The Pearson correlation coefficient was **0.0934**, indicating a weak positive relationship. In this analysis, images containing more detected objects do not necessarily have substantially longer captions.
+
+The results are saved in:
+- `exploration/06_scatter_correlation.csv`
+- `exploration/visualizations/fig09_objects_vs_caption_length.png`
+
+
+### 1.4 Part-of-Speech Distribution
+
+A Part-of-Speech (POS) analysis was performed on a sample of 10,000 cleaned captions. The words were categorized into grammatical groups, including nouns, verbs, adjectives, adverbs, determiners, prepositions, conjunctions, numerals, and pronouns.
+
+The analysis provides insight into the linguistic structure of the image captions. Nouns and verbs are particularly relevant because they describe objects, people, and actions in images.
+
+The results are saved in:
+- `exploration/07_pos_distribution.csv`
+- `exploration/visualizations/fig10_pos_distribution.png`
+
 ## 2. Object Detection Metadata Analysis
 
 Object-level metadata was generated using YOLOv8m with a confidence threshold of 0.25. The metadata file contains records for the knowledge base, validation, and test images.
@@ -52,24 +88,41 @@ The statistics are stored in:
 
 ## 3. Data Exploration Visualizations
 
-Several visualizations were generated to support the statistical analysis:
+Ten visualizations were generated to support the statistical analysis:
 
-- `exploration/visualizations/caption_length_distribution.png` — caption-length distribution.
-- `exploration/visualizations/top_15_object_classes.png` — the 15 most frequent detected object classes.
-- `exploration/visualizations/objects_per_image.png` — distribution of detected objects per image.
-- `exploration/visualizations/caption_before_after.png` — caption statistics before and after exclusion.
+1. `fig01_caption_before_after.png` — caption statistics before and after exclusion.
+2. `fig02_caption_length_distribution.png` — caption-length distribution.
+3. `fig03_object_cooccurrence_matrix.png` — object co-occurrence patterns.
+4. `fig04_objects_per_image.png` — distribution of detected objects per image.
+5. `fig05_raw_vs_cleaned_captions.png` — comparison of raw and cleaned captions.
+6. `fig06_scene_complexity_distribution.png` — distribution of scene complexity.
+7. `fig07_top_15_object_classes.png` — the 15 most frequent detected object classes.
+8. `fig08_top_50_object_classes.png` — the 50 most frequent detected object classes.
+9. `fig09_objects_vs_caption_length.png` — relationship between detected objects and caption length.
+10. `fig10_pos_distribution.png` — part-of-speech distribution.
 
-These figures provide a visual overview of caption characteristics, object categories, and the effect of leakage exclusion.
+All figures are stored in `exploration/visualizations/`.
 
-## 4. Metadata-Based Pilot Analysis
+These visualizations provide complementary views of caption characteristics, object categories, object co-occurrence, and linguistic patterns.
 
-A five-image pilot was saved in `report/metadata_based_pilot_5.json`. It compares baseline captions with RAG-generated captions using metadata-based visual descriptions and retrieved textual evidence.
 
-This experiment has an important limitation: the original images were not directly supplied to the generation model. Instead, the experiment used textual descriptions derived from object metadata.
+### 3.1 Supporting Statistical Tables
 
-Consequently, the pilot evaluates a metadata-based caption-generation workflow rather than complete end-to-end image captioning. Its five examples are exploratory and are insufficient to establish general performance superiority of either approach.
+The exploration analysis also produced the following supporting CSV files:
 
-## 5. Repository Organization and Documentation
+- `01_caption_exclusion_comparison.csv` — caption exclusion results.
+- `02_caption_statistics.csv` — caption statistics.
+- `03_object_class_statistics.csv` — detected object class frequencies.
+- `04_object_cooccurrence_matrix.csv` — object co-occurrence data.
+- `05_raw_vs_cleaned_caption_statistics.csv` — raw and cleaned caption comparison.
+- `06_scene_complexity_statistics.csv` — scene complexity statistics.
+- `06_scatter_correlation.csv` — correlation between detected objects and caption length.
+- `07_spatial_relationships.csv` — spatial relationship statistics.
+- `07_pos_distribution.csv` — grammatical category distribution.
+
+These files are stored in `exploration/`. Additional original CSV files are retained in the same directory.
+
+## 4. Repository Organization and Documentation
 
 The repository was organized into directories according to their roles:
 
@@ -86,7 +139,7 @@ The root `README.md` was rewritten to explain the project objectives, repository
 
 A `requirements.txt` file was also created to record the package versions used in the development environment. It includes the principal libraries used for numerical processing, embeddings, retrieval, object detection, generation, and evaluation.
 
-## 6. Reproducibility and Limitations
+## 5. Reproducibility and Limitations
 
 The exploration outputs were saved as CSV, JSON, and PNG files so that the results can be inspected without rerunning every analysis.
 
@@ -94,8 +147,6 @@ The following limitations should be considered:
 
 1. YOLO detections are automatically generated and have not been manually validated.
 2. The caption comparison describes leakage exclusion, not necessarily linguistic text preprocessing.
-3. The five-image pilot is metadata-based and does not constitute direct image-based evaluation.
-4. Small pilot experiments should not be treated as conclusive evidence of overall model performance.
-5. Package versions reflect the development environment; installation may require adjustments for other hardware or operating systems.
+3. Package versions reflect the development environment; installation may require adjustments for other hardware or operating systems.
 
 Overall, the exploration provides a quantitative description of the caption knowledge base and object metadata, while the repository documentation improves project organization and reproducibility.

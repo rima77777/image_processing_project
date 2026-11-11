@@ -74,9 +74,7 @@ The generation component uses `google/flan-t5-small` to generate captions from a
 - `evaluate_captions.py`: evaluation utilities.
 - `report/`: audit and experimental outputs.
 
-A five-example pilot is stored in `report/metadata_based_pilot_5.json`.
-
-Important limitation: this pilot uses metadata-based visual descriptions rather than direct original-image inputs. It is not a full end-to-end image-captioning evaluation.
+Exploratory generation and evaluation outputs, when available, are stored in `report/`.
 
 ## 7. Installation
 
